@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello UtilisateurController!{% endblock %}
+
+{% block body %}
+  <div class="container-fluid col-10 mt-5 p-5 cadre rounded">
+
+  {% if app.user %}
+       
+    <p> Vous êtes connecté(e) en tant que {{ app.user.nomComplet }}. </p>           
+    <a class="btn btn-outline-light" href="{{ path('app_logout') }}">Se deconnecter</a>
+    <a class="btn btn-outline-light" href="{{ path('app_login')}}">Se connecter avec un autre compte</a>
+  {% else %}
+    <a class="btn btn-outline-light" href="{{ path('app_login')}}">Se connecter</a>
+    <a class="btn btn-outline-light" href="{{ path('app_inscription')}}">S'inscrire</a>
+    
+  {% endif %}   
+
+</div>
+{% endblock %}

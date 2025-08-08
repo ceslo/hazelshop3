@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Votre commande
+{% endblock %}
+
+{% block body %}
+	<div class="container p-5 mt-5 cadre rounded">
+		<nav aria-label="breadcrumb">
+			<ol class="breadcrumb">
+				<li class="breadcrumb-item" >
+					<a class="link text-white" href="#">Recapitulatif de la commande</a>
+				</li>
+				<li class="breadcrumb-item text-dark">Livraison</li>
+				<li class="breadcrumb-item text-dark">Mode de paiement</li>
+			</ol>
+		</nav>
+		<div class='row'>
+			<div class='col-8'>
+			{% for item in panier %}
+				<div class="row border-bottom mt-2">
+					<h5 class="col sousTitre">{{item.article.libelleArticle}}</h5>
+					<p class="col sousTitre">
+					{{item.article.prixAchat|number_format(2, '.', '')}}€ x
+					{{item.quantite}}
+					=
+					{{item.article.prixAchat*item.quantite|number_format(2, '.', '')}}
+					€
+					</p>
+				</div>
+			{% endfor %}
+		</div>
+			<div class='col-4'>
+				<p class='border-bottom'>Total des articles: {{ total_articles|number_format(2, '.', '') }} € </p>
+				<p class='border-bottom'>Frais de port: {{frais_port}}€</p>
+				{% if remise is not null %}
+				<p class='border-bottom'>Remise: {{remise}} </p>	
+				{% endif %}				
+				<p class='border-bottom'>Total de la commande: {{ total_commande |number_format(2, '.', '')}} €</p>
+			</div>
+		</div>
+
+		<div class="mt-4">
+			<p>Choisir une adresse de livraison</p>
+			<div class="row mt-3">
+				<div class="col">
+					<p class="text-center">Choisir une adresse deja enregistrée</p>
+					{{  form(form1) }}
+					</div>
+					<div class="col">
+						<p class="text-center">Enregistrer une nouvelle adresse</p>
+						{{ form(form2)}}
+						</div>
+					</div>
+				</div>
+
+		<div>
+			<p>Choisir un mode de paiement</p>
+			<div>
+				{{ form(form3) }}
+			</div>
+		</div>
+				{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+	<div class="container mt-5">
+		<div class="row">
+
+			{% for art in articles %}
+				<a class="card col-3 m-auto p-0" href="/catalogue/article/{{art.id}}" >
+					<img src="/img/{{art.imgArticle}}" class="card-img-top " alt="...">
+					<div class="card-body">
+						<h5 class="card-title sousTitre">{{art.libelleArticle}}</h5>
+						<p class="card-text text-end text-bottom sousTitre"> Prix: {{art.prixAchat}} €</p>
+					</div>
+				</a>
+			{% endfor %}
+
+			{% for cat in categories %}
+				<a href="/catalogue/categorie/{{cat.id}}" class="card col-5 d-flex m-auto justify-content-center">
+					<h5 class="card-text titre text-center rounded p-4">{{cat.libelleCategorie}}</h5>
+				</a>
+			{% endfor %}
+
+		</div>
+	</div>
+{% endblock %}

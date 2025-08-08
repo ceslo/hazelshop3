@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+	<div class="container-fluid col-10 mt-5 cadre rounded">
+		<h1 class="titre mt-4 text-center">Notre catalogue</h1>
+		<div class="mt-5 row" >			
+
+			{% for cat in categories %}
+				<a href="/catalogue/categorie/{{cat.id}}" class="cadre rounded border col m-2">
+					<h5 class="titre text-center rounded p-4">{{cat.libelleCategorie}}</h5>
+				</a>
+			{% endfor %}
+		</div>
+		<h2 class="my-4 sousTitre">Tout nos jeux:</h2>
+	
+		<div class="row row-cols-3 d-flex justify-content-evenly">
+			{% for art in articles %}
+				<a class="col container-fluid m-2 cadre w-25 rounded" href="/catalogue/article/{{art.id}}" >
+					<img src="/img/{{art.imgArticle}}" class="card-img img-fluid" alt="..."  >
+					<div class="">
+						<h5 class="sousTitre">{{art.libelleArticle}}</h5>
+						<p class="text-end text-bottom sousTitre"> Prix: {{art.prixAchat|number_format(2, ',', ' ')}} €</p>
+					</div>
+				</a>
+			{% endfor %}
+		</div>
+	</div>
+{% endblock %}
