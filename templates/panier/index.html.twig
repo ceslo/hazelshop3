@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello PanierController!
+{% block title %}Votre panier
 {% endblock %}
 
 {% block body %}
@@ -36,6 +36,7 @@
 			<p class="mt-3 pb-2 border-bottom text-end px-4">Total: {{total|number_format(2, '.', '')}} €</p>
 			<div class="container d-flex justify-content-evenly m-3 ">
 				<a href="{{path('app_catalogue')}}" class="btn btn-outline-light ">Revenir au catalogue</a>
+				<a href="{{ path('app_panier_empty')}}" class="btn btn-outline-light">Vider le panier</a>
 				<a href="{{ path('app_commande') }}" class="btn btn-outline-light">Valider la commande</a>
 			</div>
 		{% else %}

@@ -13,7 +13,11 @@ use Symfony\Bundle\SecurityBundle\Security;
 class ClientService { 
     private $utilisateur;     
     
-    public function __construct(private Security $security, private UtilisateurRepository $utilisateurRepo, private ClientRepository $clientRepo){
+    public function __construct(
+        private Security $security, 
+        private UtilisateurRepository $utilisateurRepo, 
+        private ClientRepository $clientRepo)
+    {
 
     $this->utilisateur=$this->security->getUser();
 
@@ -31,7 +35,6 @@ class ClientService {
 
         }
     
-
     public function findCoef(){ 
         
         $utilisateur=$this->utilisateur;
@@ -49,7 +52,6 @@ class ClientService {
             return $coef;
         };
     }
-
 }
 
 
