@@ -44,6 +44,8 @@ jobs:
         touch data/database.sqlite
         php bin/console d:s:u
         php bin/console d:f:l
+      env:
+       DATABASE_URL: "sqlite:///%kernel.project_dir%/data/database.sqlite"
 
     # - name: Run migrations
     #  env:
