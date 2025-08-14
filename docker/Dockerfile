@@ -21,6 +21,7 @@ RUN apt-get install -y \
     php8.3-curl \
     php8.3-zip \
     php8.3-mysql \
+    php8.3-sqlite3 \
     php8.3-xdebug
     
 # 4. Symfony CLI
