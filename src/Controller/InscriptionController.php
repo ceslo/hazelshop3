@@ -57,7 +57,7 @@ class InscriptionController extends AbstractController
             $entitymanager->persist($utilisateur);
             $entitymanager->flush();
 
-            // Creation d'un nouveau client type Particulier
+            // Création d'un nouveau client type Particulier
             $client = new Client();
             // $telephone=$form->getData('telephone');
             // $client->setTelephone($telephone);

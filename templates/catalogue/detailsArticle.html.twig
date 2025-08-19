@@ -16,7 +16,18 @@
 						<p class="card-text">{{article.description}}</p>
 						<div class= "row">
 							<p class="card-text">Prix:{{article.prixAchat|number_format(2, ',', ' ')}}€</p>
-							<a href="/panier_add/{{article.id}}" class="btn btn-outline-light">Ajouter au panier</a>
+							{% if quantite == 0 %}
+								<a href="/panier_add/{{article.id}}" class="btn btn-outline-light">Ajouter au panier</a>
+							{% endif %}
+							{% if quantite != 0 %}
+							<div class="row">
+								<div class="col btn-group">
+									<a href="{{ path('app_panier_remove_one', {id: article.id}) }}" class="btn btn-outline-light sousTitre" title='Diminuer la quantité'>-</a>
+									<p class="text-center sousTitre col rounded m-auto">{{quantite}}</p>				
+									<a href="{{ path('app_panier_add', {id: article.id}) }}" class="btn btn-outline-light sousTitre" title="Augmenter la quantité">+</a>
+								</div>
+							{% endif %}
+			
 						</div>
 						
 					</div>

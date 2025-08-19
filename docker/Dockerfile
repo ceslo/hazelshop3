@@ -21,8 +21,7 @@ RUN apt-get install -y \
     php8.3-curl \
     php8.3-zip \
     php8.3-mysql \
-    php8.3-sqlite3 \
-    php8.3-xdebug
+    php8.3-sqlite3
     
 # 4. Symfony CLI
 RUN curl -sS https://get.symfony.com/cli/installer | bash && \
@@ -34,8 +33,8 @@ RUN curl -sS https://getcomposer.org/installer | php && \
     mv composer.phar /usr/local/bin/composer && \
     chmod +x /usr/local/bin/composer
 
-# 6. Copie de config Xdebug
-COPY xdebug.ini /etc/php/8.3/cli/conf.d/20-xdebug.ini
+# # 6. Copie de config Xdebug
+# COPY xdebug.ini /etc/php/8.3/cli/conf.d/20-xdebug.ini
 
 # 7. Dossier de travail
 WORKDIR /var/www

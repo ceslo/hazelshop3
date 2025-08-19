@@ -180,7 +180,7 @@ class Jeu1 extends Fixture
         $utilisateur1=new Utilisateur();
         $utilisateur1-> setNom("Scott");
         $utilisateur1->setPrenom("Michael");
-        $utilisateur1->setPassword('$2y$13$Nx/KhOvL7cpjb3JvZy46T.GKE5vsSXFmO6UiWu1XxvSOg7935goh.');
+        $utilisateur1->setPassword('$2y$13$dJKgt6PbEzC9fDbXjUsOD.SvyBkjW34DTaay0OhgPVWn/WMbglhFG');
         $utilisateur1->setEmail("m.scott@mail.com");
         $utilisateur1->setDateInscription(new DateTime('2020-09-06'));
         $utilisateur1->setTypeUtilisateur($typeUtilisateur1);

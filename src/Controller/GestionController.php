@@ -18,7 +18,7 @@ class GestionController extends AbstractController
         $this->denyAccessUnlessGranted('ROLE_ADMIN');
         
         //pour ajouter un article
-        $formArticle= $this->createForm(ArticleFormType::class);
+        $formArticle= $this->createForm(ArticleFormType::class); 
         $formArticle->handleRequest($request);
 
         if ($formArticle->isSubmitted() && $formArticle->isValid())

@@ -44,16 +44,12 @@ jobs:
         # touch data/database.sqlite
         php bin/console d:d:d --force --env=test
         php bin/console d:d:c --env=test
-        php bin/console d:s:u --force --complete --env=test
+        php bin/console d:s:u --force --env=test
         php bin/console d:f:l --append --env=test
         
       env:
        DATABASE_URL: "sqlite:///%kernel.project_dir%/data/database.sqlite"
 
-    # - name: Run migrations
-    #  env:
-    #      DATABASE_URL: "sqlite:///%kernel.project_dir%/data/database.sqlite"
-    #  run: php bin/console doctrine:migrations:migrate --no-interaction --env=test
     - name: Execute tests (Unit and Feature tests) via PHPUnit
       env:
         DATABASE_URL: "sqlite:///%kernel.project_dir%/data/database.sqlite"

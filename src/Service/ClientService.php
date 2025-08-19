@@ -32,7 +32,7 @@ class ClientService {
         $clientID= $u->getClient();
         $client=$this->clientRepo->findOneBy(["id"=>$clientID]);
         return $client;
-
+        
         }
     
     public function findCoef(){ 
@@ -53,13 +53,5 @@ class ClientService {
         };
     }
 }
-
-
-
-
-
-
-
-
 
    

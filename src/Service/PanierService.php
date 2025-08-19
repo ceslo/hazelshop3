@@ -16,6 +16,10 @@ class PanierService
         $this->session = $this->requestStack->getSession();
        
     }
+    public function getPanier(){
+        $panier = $this->session->get("panier", []);
+        return $panier;
+    }
 
     public function IndexPanier()
     {
@@ -57,8 +61,7 @@ class PanierService
     public function removeAllFromCart($id)
     {
         $panier = $this->session->get("panier", []);
-        // dd($panier);      
-
+    
         unset($panier[$id]);
 
         $this->session->set("panier", $panier);

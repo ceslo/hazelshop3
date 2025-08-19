@@ -40,7 +40,7 @@ class CommandeController extends AbstractController
         
         // On récupère le contenu du panier
            
-        $panier_details=$panierService->IndexPanier();
+        $panier_details= $panierService->IndexPanier();
         
         // on recupère les données du client associé l'utilisateur
         $email = $utilisateur->getUserIdentifier();
@@ -82,13 +82,11 @@ class CommandeController extends AbstractController
             $adresse = $form2->getData()
                 ->setClient($client);
             $entityManager->persist($adresse);
-            $entityManager->flush();
-            
+            $entityManager->flush();            
         };
 
         //choix du mode de paiement
 
-     
         $form3 = $this->createFormBuilder()
         ->add('mode_paiement', ChoiceType::class,[
             'choices'=>[
@@ -104,21 +102,17 @@ class CommandeController extends AbstractController
         $form3->handleRequest($request);
         $mode= $form3->getData('mode_paiement');
 
-    
-    
-        
-        // $commande=new Commande();
-        // $commande
-        //     ->setClient($client)
-        //     ->setAdresseLivraison($adresse)
-        //     ->setAdresseFacturation($adresse)
-        //     ->setDateCommande(new DateTime('now'))
-        //     ->setFraisPort("4.90")
-        //     ->setModePaiement("CB")
-        //     ->setDelaisReglement("0")
-        //     ->setStatut("Enregistrée");
             
-
+        $commande=new Commande();
+        $commande
+            ->setClient($client)
+            ->setAdresseLivraison($adresse)
+            ->setAdresseFacturation($adresse)
+            ->setDateCommande(new DateTime('now'))
+            ->setFraisPort("4.90")
+            ->setModePaiement("CB")
+            ->setDelaisReglement("0")
+            ->setStatut("Enregistrée");   
           
 
         return $this->render('commande/index.html.twig', [

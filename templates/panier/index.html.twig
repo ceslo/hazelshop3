@@ -12,8 +12,8 @@
 					
 					<div class="row">
 						<div class="row col-9">
-							<p class=" col sousTitre">	{{item.article.libelleArticle}}	</p>			
-							<p class=" col"> Prix: {{(item.article.prixAchat*coefCli)|number_format(2, '.', '')}} €</p>
+							<p class="col sousTitre libelle">	{{item.article.libelleArticle}}	</p>			
+							<p class="col prix"> Prix: {{(item.article.prixAchat*coefCli)|number_format(2, '.', '')}} €</p>
 						</div>				 
 						<div class="col-3 container">
 							<div class="row">
@@ -21,7 +21,7 @@
 									<a href="{{ path('app_panier_remove_one', {id: item.article.id}) }}" class="btn btn-outline-light sousTitre" title='Diminuer la quantité'>-</a>				
 									<a href="{{ path('app_panier_add', {id: item.article.id}) }}" class="btn btn-outline-light sousTitre" title="Augmenter la quantité">+</a>
 								</div>
-								<p class="text-center sousTitre col rounded m-auto">{{item.quantite}}</p>
+								<p class="text-center quantite sousTitre col rounded m-auto">{{item.quantite}}</p>
 								<a href="{{ path('app_panier_remove_all', {id: item.article.id}) }}" class="btn colbtn-outline-light col" title='Supprimer du panier'>
 									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-trash" viewbox="0 0 16 16">
 									<path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z"/>

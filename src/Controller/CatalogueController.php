@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Repository\ArticleRepository;
 use App\Repository\CategorieRepository;
+use App\Service\PanierService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -42,17 +43,23 @@ class CatalogueController extends AbstractController
     }
 
     #[Route('/catalogue/article/{art_id}', name: 'app_details_article')]
-    public function affichageDetailsArticles(Request $request , ArticleRepository $articleRepository):Response
+    public function affichageDetailsArticles(Request $request , ArticleRepository $articleRepository, PanierService $panierService):Response
     {
         $id=$request->attributes->get('art_id');
+        $panier = $panierService->getPanier();
+        $quantitePanier = 0;
+       
+        if (isset ($panier[$id])){
+            $quantitePanier = $panier[$id];
+        };
 
         $article= $articleRepository->find($id);
 
         return $this->render('catalogue/detailsArticle.html.twig',[
             'controller_name'=> 'CatalogueController',
             'article'=> $article,
+           'quantite' => $quantitePanier,
         ]);
     }
-
 
 }

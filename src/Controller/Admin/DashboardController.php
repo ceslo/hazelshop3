@@ -25,7 +25,7 @@ class DashboardController extends AbstractDashboardController
     public function index(): Response
     {
         $qteByFournisseur= $this->fournisseurRepository->qteArtSoldByFourni();
-        dd($qteByFournisseur);
+       ;
 
         
         // return parent::index();

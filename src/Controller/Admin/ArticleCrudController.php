@@ -34,9 +34,6 @@ class ArticleCrudController extends AbstractCrudController
     ->add(EntityFilter::new('Fournisseur'));
   }
   
-  
-
-
     public function configureFields(string $pageName): iterable
     {
         return [
